@@ -40,46 +40,160 @@
         .list-group{
             padding-left:16px;
         }
+        @keyframes over{
+            0%{
+                opacity: 0%;
+            }
+            100%{
+                opacity: 70%;
+            }
+        }
+        @keyframes under{
+            0%{
+                opacity: 70%;
+            }
+            100%{
+                opacity: 0%;
+            }
+        }
     </style>
 </head>
 <body background="bg.png">
-    <p style="margin:2%;">AMAR</p>
+    <div style="background:black repeat center;width:100%; height:auto;position:absolute; z-index: 2;"></div>
+    <p style="margin:2%; font-size:xx-large;">A.V.E.</p>
     <div class="row" style="margin:1%;">
-    <div class="col"><div id="a" class="card text-center">
+    <div class="col"><div id="a" class="card text-center" onclick="hi(1)">
         <img src="bsc.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Amar Basic</h5>
             <p class="card-text">2.99</p>
         </div>
         <div class="card-body list-group list-group-flush text-center">
-            Info currently unavailable.
+            Click the card for more info!
         </div>
     </div></div>
-    <div class="col"><div id="a" class="card text-center">
+    <div class="col"><div id="a" class="card text-center" onclick="hi(2)">
         <img src="adv.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Amar Advanced</h5>
             <p class="card-text">7.99</p>
         </div>
         <div class="card-body list-group list-group-flush text-center">
-            Info currently unavailable.
+            Click the card for more info!
         </div>
     </div></div>
-    <div class="col"><div id="a" class="card text-center">
+    <div class="col"><div id="a" class="card text-center" onclick="hi(3)">
         <img src="pro.png" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Amar Pro</h5>
             <p class="card-text">12.99</p>
         </div>
         <div class="card-body list-group list-group-flush text-center">
-            Info currently unavailable.
+            Click the card for more info!
         </div>
     </div></div>
     </div>
+    <div id="i" class="card md-3" style="margin:12%; position:absolute; top:4%; margin-top:0%; width: 76%; z-index:-1; opacity:0%;">
+        <div class="row g-0">
+            <div class="col"><img id="g" src="..."></div>
+            <div class="col">
+                <div class="card-body" id="j" style="font-size:xx-large; padding-bottom:0;"></div>
+                <div class="card-body" id="k" style="font-size:small; padding-top:0;"></div>
+                <div class="card-body" id="l"></div>
+            </div>
+        </div>
+    </div>
+    <div id="h" class="card" style="border-radius: 0; position:absolute; width:100%; height:100%;top:0%; margin-bottom: 0%; background:black; opacity:0%; z-index:-1;" onclick="closeMenu()">
+        <div class="row">
+            <div class="col">
+                <img src="bsc.png" style="opacity:0%;">
+            </div>
+        </div>
+    </div>
     <script>
-        function hi(){
-            console.log("hi")
+        c = document.getElementById("h")
+        d = document.getElementById("i")
+        isCovered = false
+        var x,y = 0,z=0.02,w,m=4
+        document.getElementById("g").src="bsc.png"
+        function hi(a){
+            c.style.animation="over 500ms"
+            d.style.animation="aa 500ms"
+            d.style.opacity="100%"
+            c.style.opacity="70%"
+            c.style.zIndex="2"
+            d.style.zIndex="3"
+            switch(a){
+                case 1:
+                    document.getElementById("g").src="bsc.png"
+                    document.getElementById("j").innerHTML=a1
+                    document.getElementById("k").innerHTML=aa1
+                    document.getElementById("l").innerHTML=aaa1
+                    break
+                case 2:
+                    document.getElementById("g").src="adv.png"
+                    document.getElementById("j").innerHTML=a2
+                    document.getElementById("k").innerHTML=aa2
+                    document.getElementById("l").innerHTML=aaa2
+                    break
+                case 3:
+                    document.getElementById("g").src="pro.png"
+                    document.getElementById("j").innerHTML=a3
+                    document.getElementById("k").innerHTML=aa3
+                    document.getElementById("l").innerHTML=aaa3
+                    break
+
+            }
+            
+            w=setInterval(moveIt,5)
         }
+        function closeMenu(){
+            c.style.animation="under 500ms"
+            d.style.animation="aaa 500ms"
+            d.style.opacity="0%"
+            c.style.opacity="0%"
+            x=setInterval(interval,500)
+            w=setInterval(moveIt,5)
+        }
+        function interval(){
+            if(y==1){
+                clearInterval(x)
+                c.style.zIndex="-1"
+                d.style.zIndex="-1"
+                y=0
+            }
+            else{y++}
+        }
+        function moveIt(){
+            if(!isCovered){
+                m-=z
+                d.style.top=m+"%"
+                if(m<2){ 
+                    clearInterval(w)
+                    isCovered = true
+                    d.style.top="2%"
+                }
+            }
+            else{
+                m+=z
+                d.style.top=m+"%"
+                if(m>4) {
+                    clearInterval(w)
+                    d.style.top="4%"
+                    isCovered = false
+                    console.log(m)
+                }
+            }
+        }
+        a1 = "Amar Basic"
+        aa1 = "The economy plan of all time."
+        aaa1 = "Includes all the basic video editing needs for anyone to enjoy."
+        a2 = "Amar Advanced"
+        aa2 = "I guess we need more advanced options."
+        aaa2 = "Includes everything from Amar Basic, topped with extra preferences and options for video editing."
+        a3 = "Amar Pro"
+        aa3 = "We didn't know there were professionals (now we know)"
+        aaa3 = "Includes everything from Amar Advanced, now with all the remaining options suited for professional video editing."
     </script>
 </body>
 </html>
