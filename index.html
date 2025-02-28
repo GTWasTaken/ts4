@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .list-group{
+            opacity:0%;
+        }
+        #a:hover{
+            .list-group{
+                animation: aa 500ms;
+                opacity: 100%;
+            }
+        }
+        #a:not(:hover){
+            .list-group{
+                animation: aaa 500ms;
+                opacity: 0%;
+            }
+        }
+        @keyframes aaa{
+            0%{
+                opacity:100%;
+            }
+            100%{
+                opacity:0%;
+            }
+        }
+        @keyframes aa{
+            0%{
+                opacity:0%;
+            }
+            100%{
+                opacity:100%;
+            }
+        }
+        .list-group{
+            padding-left:16px;
+        }
+    </style>
+</head>
+<body background="bg.png">
+    <p style="margin:2%;">AMAR</p>
+    <div class="row" style="margin:1%;">
+    <div class="col"><div id="a" class="card text-center">
+        <img src="bsc.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Amar Basic</h5>
+            <p class="card-text">2.99</p>
+        </div>
+        <div class="card-body list-group list-group-flush text-center">
+            Info currently unavailable.
+        </div>
+    </div></div>
+    <div class="col"><div id="a" class="card text-center">
+        <img src="adv.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Amar Advanced</h5>
+            <p class="card-text">7.99</p>
+        </div>
+        <div class="card-body list-group list-group-flush text-center">
+            Info currently unavailable.
+        </div>
+    </div></div>
+    <div class="col"><div id="a" class="card text-center">
+        <img src="pro.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Amar Pro</h5>
+            <p class="card-text">12.99</p>
+        </div>
+        <div class="card-body list-group list-group-flush text-center">
+            Info currently unavailable.
+        </div>
+    </div></div>
+    </div>
+    <script>
+        function hi(){
+            console.log("hi")
+        }
+    </script>
+</body>
+</html>
